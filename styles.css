@@ -22,6 +22,8 @@ body {
 }
 
 /*Header styling*/
+
+
 h1 {
     font-size: 80px;
     font-family: 'DM Serif Text', serif;
@@ -95,10 +97,47 @@ div.me img {
     border-radius: 2em;
     background-color: rgba(222, 77, 134, 0.25); /* rgba for semi-transparent background */
 }
-
 .star {
     width: 75px;
 }
+
+/* Contact Page styling */
+#contact h2 {
+    color: #DE4D86;
+    font-size: 60px;
+    font-family: 'DM Serif Text';
+}
+.box {
+    border-radius: 2rem;
+    border: solid #8E2E5E 10px;
+    color: #DE4D86;
+    font-family: 'Bebas Neue';
+    font-size: 30px;
+    width: 1000px;
+}
+#contact a {
+    text-decoration: none;
+    color: inherit;
+
+}
+#contact a:hover {
+    text-decoration: none;
+    color: #8E2E5E;
+
+}
+
+/* footer */
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #DE4D86;
+    color: #FFFFFF;
+    font-family: 'Bebas Neue';
+    height: 100px;
+}
+
+
 
 
 
