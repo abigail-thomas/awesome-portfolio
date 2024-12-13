@@ -49,29 +49,34 @@ div img {
     font-size: 60px;
     font-family: 'DM Serif Text', serif;
 }
-
 .card {
     text-decoration: none;
     background-color: transparent;
     border: solid #FFFFFF 10px;
     border-radius: 2em;
     height: 150px;
-
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card-link:hover .card {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
 .card-title {
     text-decoration: none;
     color: inherit;
     font-size: 30px;
-
-}
-.card-link {
-    text-decoration: none; /* Remove the underline */
-    color: inherit; /* Ensure the text color is inherited from its parent (no blue or default link color) */
 }
 
 .card-link:focus, .card-link:hover {
-    text-decoration: none; /* Ensure there's no underline on hover or focus */
-    color: inherit; /* Ensure color doesn't change on hover */
+    text-decoration: none;
+    color: inherit;
 }
 
 
