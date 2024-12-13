@@ -42,23 +42,46 @@ div img {
 #projects {
     background-color: #DE4D86;
     font-family: 'Bebas Neue';
-    color: #FFFFFF
+    color: #FFFFFF;
+    height: 700px;
 }
-h2 {
+#projects h2 {
     font-size: 60px;
     font-family: 'DM Serif Text', serif;
-    color: #ffffff;
 }
 
 .card {
+    text-decoration: none;
     background-color: transparent;
     border: solid #FFFFFF 10px;
     border-radius: 2em;
-    height: 150px;;
+    height: 150px;
+
 }
 .card-title {
+    text-decoration: none;
+    color: inherit;
     font-size: 30px;
+
 }
+.card-link {
+    text-decoration: none; /* Remove the underline */
+    color: inherit; /* Ensure the text color is inherited from its parent (no blue or default link color) */
+}
+
+.card-link:focus, .card-link:hover {
+    text-decoration: none; /* Ensure there's no underline on hover or focus */
+    color: inherit; /* Ensure color doesn't change on hover */
+}
+
+
+/* About Me Styling*/
+#about h2 {
+    font-size: 60px;
+    font-family: 'DM Serif Text', serif;
+    color: #8E2E5E;
+}
+
 
 
 
