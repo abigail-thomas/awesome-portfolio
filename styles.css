@@ -2,7 +2,9 @@ body {
     background-color: #FFFFFF;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text&family=Nunito&family=Nunito+Sans:opsz@6..12&display=swap');/*Navbar styling */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text&family=Nunito:opsz@6..12&display=swap');
+
+/*Navbar styling */
 .navbar {
     position: sticky;
     top: 0;
@@ -99,8 +101,9 @@ div.me img {
     border-radius: 2em;
     background-color: rgba(222, 77, 134, 0.25); /* rgba for semi-transparent background */
 }
-.star {
-    width: 75px;
+
+.bold {
+    color: #8E2E5E;
 }
 
 /* Contact Page styling */
