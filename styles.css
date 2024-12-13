@@ -2,9 +2,10 @@ body {
     background-color: #FFFFFF;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-/*Navbar styling */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text&family=Nunito&family=Nunito+Sans:opsz@6..12&display=swap');/*Navbar styling */
 .navbar {
+    position: sticky;
+    top: 0;
     background-color: #DE4D86;
     font-family: 'Bebas Neue';
     display: grid;
@@ -27,12 +28,12 @@ h1 {
     color: #DE4D86;
 
 }
-span {
+span.header {
     font-size: 80px;
     font-family: 'DM Serif Text', serif;
     color: #8E2E5E;
 }
-div img {
+div.me img {
     width: 500px;
     border: solid #DE4D86 10px;
     border-radius: 10%;
@@ -51,10 +52,11 @@ div img {
 }
 .card {
     text-decoration: none;
-    background-color: transparent;
+    background-color: #DE4D86;
     border: solid #FFFFFF 10px;
     border-radius: 2em;
     height: 150px;
+    width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -85,6 +87,17 @@ div img {
     font-size: 60px;
     font-family: 'DM Serif Text', serif;
     color: #8E2E5E;
+}
+.about-me {
+    color: #DE4D86;
+    font-size: 30px;
+    font-family: 'Nunito', sans-serif;
+    border-radius: 2em;
+    background-color: rgba(222, 77, 134, 0.25); /* rgba for semi-transparent background */
+}
+
+.star {
+    width: 75px;
 }
 
 
