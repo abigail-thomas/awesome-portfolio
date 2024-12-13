@@ -35,6 +35,10 @@ span.header {
     font-family: 'DM Serif Text', serif;
     color: #8E2E5E;
 }
+span.header:hover {
+    font-size: 100px;
+}
+
 div.me img {
     width: 500px;
     border: solid #DE4D86 10px;
