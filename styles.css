@@ -1,55 +1,58 @@
 body {
-    background-color: #FFFFFF;
+    background-color: var(--white);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text&family=Nunito:opsz@6..12&display=swap');
+
+:root {
+  --primary-pink: #DE4D86;
+  --dark-pink: #8E2E5E;
+  --white: #FFFFFF;
+}
 
 /*Navbar styling */
 .navbar {
     position: sticky;
     top: 0;
-    background-color: #DE4D86;
+    background-color: var(--primary-pink);
     font-family: 'Bebas Neue';
     display: grid;
     justify-content: center;
     font-size: 20px;
 }
 .navbar-nav .nav-link {
-    color: #FFFFFF;
+    color: var(--white);
 }
 
 .navbar-nav .nav-link:hover {
-    color: #8E2E5E;
+    color: var(--dark-pink);
     font-weight: bold;
 }
 
 /*Header styling*/
 
-
 h1 {
     font-size: 80px;
     font-family: 'DM Serif Text', serif;
-    color: #DE4D86;
-
+    color: var(--primary-pink);
 }
 span.header {
     font-size: 80px;
     font-family: 'DM Serif Text', serif;
-    color: #8E2E5E;
+    color: var(--dark-pink);
 }
-
 
 div.me img {
     width: 500px;
-    border: solid #DE4D86 10px;
+    border: solid var(--primary-pink) 10px;
     border-radius: 10%;
 }
 
 /* Project section styling*/
 #projects {
-    background-color: #DE4D86;
+    background-color: var(--primary-pink);
     font-family: 'Bebas Neue';
-    color: #FFFFFF;
+    color: var(--white);
     height: 700px;
 }
 #projects h2 {
@@ -58,8 +61,8 @@ div.me img {
 }
 .card {
     text-decoration: none;
-    background-color: #DE4D86;
-    border: solid #FFFFFF 10px;
+    background-color: var(--primary-pink);
+    border: solid var(--white) 10px;
     border-radius: 2em;
     height: 150px;
     width: 350px;
@@ -87,15 +90,14 @@ div.me img {
     color: inherit;
 }
 
-
 /* About Me Styling*/
 #about h2 {
     font-size: 60px;
     font-family: 'DM Serif Text', serif;
-    color: #8E2E5E;
+    color: var(--dark-pink);
 }
 .about-me {
-    color: #DE4D86;
+    color: var(--primary-pink);
     font-size: 30px;
     font-family: 'Nunito', sans-serif;
     border-radius: 2em;
@@ -103,19 +105,19 @@ div.me img {
 }
 
 .bold {
-    color: #8E2E5E;
+    color: var(--dark-pink);
 }
 
 /* Contact Page styling */
 #contact h2 {
-    color: #DE4D86;
+    color: var(--primary-pink);
     font-size: 60px;
     font-family: 'DM Serif Text';
 }
 .box {
     border-radius: 2rem;
-    border: solid #8E2E5E 10px;
-    color: #DE4D86;
+    border: solid var(--dark-pink) 10px;
+    color: var(--primary-pink);
     font-family: 'Bebas Neue';
     font-size: 30px;
     width: 1000px;
@@ -123,12 +125,10 @@ div.me img {
 #contact a {
     text-decoration: none;
     color: inherit;
-
 }
 #contact a:hover {
     text-decoration: none;
-    color: #8E2E5E;
-
+    color: var(--dark-pink);
 }
 
 /* footer */
@@ -136,16 +136,8 @@ footer {
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background-color: #DE4D86;
-    color: #FFFFFF;
+    background-color: var(--primary-pink);
+    color: var(--white);
     font-family: 'Bebas Neue';
     height: 100px;
 }
-
-
-
-
-
-
-
-

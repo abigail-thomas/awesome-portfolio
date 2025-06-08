@@ -1,238 +1,1204 @@
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Text:ital@0;1&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <title>Abigail Thomas - Software Developer</title>
+    
+    <style>
+        :root {
+            --primary-blue: #2D4A87;
+            --dark-blue: #1B2951;
+            --accent-blue: #4A90E2;
+            --light-blue: #E8F1FF;
+            --navy: #0F1419;
+            --space-black: #0B0E14;
+            --white: #FFFFFF;
+            --star-gold: #FFD700;
+            --star-silver: #C0C0C0;
+            --nebula-purple: #6B46C1;
+            --gray: #6B7280;
+            --light-gray: #F8FAFC;
+            --shadow: rgba(0, 0, 0, 0.2);
+            --shadow-hover: rgba(0, 0, 0, 0.3);
+            --glow: rgba(74, 144, 226, 0.3);
+        }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="imgs/star.svg">
-    <title>Abigail Thomas</title>
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--space-black) 0%, var(--navy) 50%, var(--dark-blue) 100%);
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
 
+        /* Starfield Background */
+        .starfield {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: var(--star-gold);
+            border-radius: 50%;
+            animation: twinkle 2s infinite alternate;
+        }
+
+        .star.small {
+            width: 2px;
+            height: 2px;
+        }
+
+        .star.medium {
+            width: 3px;
+            height: 3px;
+            background: var(--star-silver);
+            animation-duration: 3s;
+        }
+
+        .star.large {
+            width: 4px;
+            height: 4px;
+            animation-duration: 4s;
+        }
+
+        @keyframes twinkle {
+            0% { opacity: 0.3; transform: scale(1); }
+            100% { opacity: 1; transform: scale(1.2); }
+        }
+
+        /* Orbiting Elements */
+        .orbit-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orbit {
+            position: absolute;
+            border: 1px solid transparent;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .orbit-1 {
+            width: 300px;
+            height: 300px;
+            animation: rotate 20s linear infinite;
+        }
+
+        .orbit-2 {
+            width: 500px;
+            height: 500px;
+            animation: rotate 35s linear infinite reverse;
+        }
+
+        .orbit-3 {
+            width: 800px;
+            height: 800px;
+            animation: rotate 50s linear infinite;
+        }
+
+        /* Five-pointed star shape using clip-path */
+        .planet {
+            position: absolute;
+            top: -6px;
+            left: 50%;
+            margin-left: -6px;
+            width: 12px;
+            height: 12px;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            box-shadow: 0 0 20px currentColor;
+            animation: starPulse 3s ease-in-out infinite alternate;
+        }
+
+        .planet-1 {
+            background: var(--accent-blue);
+            color: var(--accent-blue);
+            width: 16px;
+            height: 16px;
+            top: -8px;
+            margin-left: -8px;
+            animation-delay: 0s;
+        }
+
+        .planet-2 {
+            background: var(--star-gold);
+            color: var(--star-gold);
+            width: 12px;
+            height: 12px;
+            top: -6px;
+            margin-left: -6px;
+            animation-delay: 1s;
+        }
+
+        .planet-3 {
+            background: var(--nebula-purple);
+            color: var(--nebula-purple);
+            width: 20px;
+            height: 20px;
+            top: -10px;
+            margin-left: -10px;
+            animation-delay: 2s;
+        }
+
+        @keyframes starPulse {
+            0% { 
+                transform: scale(1) rotate(0deg);
+                opacity: 0.7;
+            }
+            100% { 
+                transform: scale(1.3) rotate(360deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(11, 14, 20, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(74, 144, 226, 0.2);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-decoration: none;
+            text-shadow: 0 0 10px var(--glow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 500;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+            text-shadow: 0 0 10px var(--glow);
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-blue);
+            box-shadow: 0 0 10px var(--glow);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 0 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 60%;
+            height: 120%;
+            background: radial-gradient(circle, rgba(74, 144, 226, 0.1) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .hero-text .highlight {
+            color: var(--accent-blue);
+            position: relative;
+            text-shadow: 0 0 20px var(--glow);
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.25rem;
+            color: var(--light-blue);
+            margin-bottom: 2rem;
+            font-weight: 400;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(74, 144, 226, 0.4), 0 0 30px var(--glow);
+            border: 1px solid var(--accent-blue);
+        }
+
+        .cta-button:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(74, 144, 226, 0.6), 0 0 40px var(--glow);
+            color: var(--white);
+        }
+
+        .hero-image {
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid rgba(74, 144, 226, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 60px var(--glow);
+            transition: transform 0.3s ease;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 80px var(--glow);
+        }
+
+        /* Floating star elements */
+        .floating-element {
+            position: absolute;
+            animation: float 6s ease-in-out infinite;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            box-shadow: 0 0 20px currentColor;
+        }
+
+        .floating-element:nth-child(1) {
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+            width: 60px;
+            height: 60px;
+            background: var(--accent-blue);
+            color: var(--accent-blue);
+        }
+
+        .floating-element:nth-child(2) {
+            top: 60%;
+            right: 15%;
+            animation-delay: 2s;
+            width: 40px;
+            height: 40px;
+            background: var(--star-gold);
+            color: var(--star-gold);
+        }
+
+        .floating-element:nth-child(3) {
+            bottom: 30%;
+            left: 5%;
+            animation-delay: 4s;
+            width: 80px;
+            height: 80px;
+            background: var(--nebula-purple);
+            color: var(--nebula-purple);
+        }
+
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% { 
+                transform: translateY(-20px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 6rem 0;
+            background: rgba(15, 20, 25, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px var(--glow);
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--light-blue);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(45, 74, 135, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px var(--shadow), 0 0 30px rgba(74, 144, 226, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            border: 1px solid rgba(74, 144, 226, 0.2);
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(74, 144, 226, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .project-card:hover::before {
+            left: 100%;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px var(--shadow-hover), 0 0 60px rgba(74, 144, 226, 0.3);
+            border-color: var(--accent-blue);
+        }
+
+        .project-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--accent-blue));
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .project-card h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .project-card p {
+            color: var(--light-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-blue);
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 1rem;
+            color: var(--star-gold);
+            text-shadow: 0 0 10px currentColor;
+        }
+
+        /* About Section */
+        .about {
+            padding: 6rem 0;
+            background: rgba(27, 41, 81, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px var(--glow);
+        }
+
+        .about-text p {
+            font-size: 1.1rem;
+            color: var(--light-blue);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem;
+            background: rgba(74, 144, 226, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(74, 144, 226, 0.2);
+            border-radius: 10px;
+            font-weight: 500;
+            color: var(--white);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(74, 144, 226, 0.2);
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 20px rgba(74, 144, 226, 0.3);
+        }
+
+        .skill-icon {
+            width: 20px;
+            height: 20px;
+            color: var(--accent-blue);
+        }
+
+        .about-visual {
+            position: relative;
+        }
+
+        .stats-card {
+            background: rgba(45, 74, 135, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow), 0 0 40px rgba(74, 144, 226, 0.2);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(74, 144, 226, 0.3);
+        }
+
+        .stat-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--accent-blue);
+            display: block;
+            text-shadow: 0 0 20px var(--glow);
+        }
+
+        .stat-label {
+            color: var(--light-blue);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--space-black);
+            position: relative;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-blue), transparent);
+            box-shadow: 0 0 20px var(--glow);
+        }
+
+        .contact-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--white);
+            text-shadow: 0 0 20px var(--glow);
+        }
+
+        .contact p {
+            font-size: 1.1rem;
+            color: var(--light-blue);
+            margin-bottom: 3rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background: rgba(74, 144, 226, 0.1);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--accent-blue);
+            border-radius: 50px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: var(--accent-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(74, 144, 226, 0.4), 0 0 30px var(--glow);
+            color: var(--white);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0;
+            background: var(--space-black);
+            border-top: 1px solid rgba(74, 144, 226, 0.2);
+            text-align: center;
+            color: var(--light-blue);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .orbit-1, .orbit-2, .orbit-3 {
+                width: 200px;
+                height: 200px;
+            }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Loading animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Shooting star animation */
+        .shooting-star {
+            position: fixed;
+            top: 10%;
+            right: -10px;
+            width: 2px;
+            height: 2px;
+            background: var(--star-gold);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--star-gold), -200px 0 20px var(--star-gold);
+            animation: shootingStar 8s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes shootingStar {
+            0% {
+                right: -10px;
+                top: 10%;
+                opacity: 1;
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                right: 100vw;
+                top: 80%;
+                opacity: 0;
+            }
+        }
+        /* Starfield Background */
+.starfield {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    background: var(--star-gold);
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star.small {
+    width: 1px;
+    height: 1px;
+}
+
+.star.medium {
+    width: 2px;
+    height: 2px;
+    background: var(--star-silver);
+    animation-duration: 3s;
+}
+
+.star.large {
+    width: 3px;
+    height: 3px;
+    animation-duration: 4s;
+}
+
+@keyframes twinkle {
+    0% { 
+        opacity: 0.3; 
+        transform: scale(1);
+    }
+    100% { 
+        opacity: 1; 
+        transform: scale(1.5);
+    }
+}
+    </style>
 </head>
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#home">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#projects">Projects</a>
-                </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#about">About</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#contact">Contact</a>
-            </li>
-        </ul>
+    <div class="starfield"></div>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-container">
+                <a href="#home" class="logo">Abigail Thomas</a>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-    </div>
     </nav>
 
-    <!-- Home Section -->
-    <div class="header container-lg my-5" id="home">
-        <div class="row d-flex justify-content-center align-items-center pt-5">
-            <div class="col-8 text-left">
-                <h1>Hi! I'm <span class="header" id="header">Abigail</span>. <br>Nice to meet you.</h1>
+      <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text fade-in">
+                    <h1>Hi, I'm <span class="highlight">Abigail</span>.<br>Software Developer & Creative Problem Solver.</h1>
+                    <p class="subtitle">Passionate about exploring the intersection of technology and creativity.</p>
+                    <a href="#projects" class="cta-button">
+                        View My Work
+                        <i class="bi bi-arrow-right"></i>
+                    </a>
+                </div>
+                <div class="hero-image fade-in">
+                    <img src="imgs/me2.png" alt="Abigail Thomas - Software Developer">
+                </div>
             </div>
-            <div class="col-4 me"><img src="imgs/me.png" alt="me !"></div>
         </div>
-    </div>
-    <br>
-
-    
+        <div class="scroll-indicator">
+            <i class="bi bi-chevron-down" style="color: var(--accent-blue); font-size: 1.5rem;"></i>
+        </div>
+        
+        
+    </section>
 
     <!-- Projects Section -->
-    <div class="container-fluid my-5" id="projects">
-        <h2 class="text-center pt-5">My Projects</h2>
-        <div class="row justify-content-center">
-        <!-- Project Card 1 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://abigail-thomas.github.io/Trekker/" target="_blank" class="card-link">
-                <div class="card">
-                    <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                        <h5 class="card-title">Trekker</h5>
-                        <p class="card-text">Exploration Starts Here – Find Your Adventure.</p>
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Featured Projects</h2>
+                <p>A collection of projects that showcase my skills in web development, game design, and programming.</p>
+            </div>
+            <div class="projects-grid">
+                
+                <a href="https://abigail-thomas.github.io/Trekker/" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-compass"></i>
+                    </div>
+                    <h3>Trekker</h3>
+                    <p>A comprehensive travel planning application that helps users discover and plan their perfect adventures with interactive maps and personalized recommendations.</p>
+                    <span class="project-link">
+                        Explore Project <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+
+             
+                 <a href="https://fsc-astronomy-club.web.app/" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-stars"></i>
+                    </div>
+                    <h3>FSC Astronomy Club</h3>
+                    <p>Official website for Florida Southern College's Astronomy Club, featuring event information, member resources, and stargazing guides.</p>
+                    <span class="project-link">
+                        Visit Site <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+
+                <a href="https://pierrehmatisse.com/" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <h3>Matisse Gallery</h3>
+                    <p>An elegant digital gallery showcasing Pierre Matisse's magnificent artworks and his complex and fascinating life story through the beauty of his brush.</p>
+                    <span class="project-link">
+                        Visit Gallery <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+
+                  <a href="https://github.com/abigail-thomas/sub-surge" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-water"></i>
+                    </div>
+                    <h3>Sub Surge</h3>
+                    <p>An engaging underwater adventure game featuring dynamic obstacle avoidance mechanics and immersive gameplay experiences.</p>
+                    <span class="project-link">
+                        View Code <i class="bi bi-github"></i>
+                    </span>
+                </a>
+
+                <a href="https://athomas5.itch.io/gravity-rift" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-palette2"></i>
+                    </div>
+                    <h3>Gravity Rift</h3>
+                    <p>Multi-level platformer game; winner of "People's Choice Award" and second runner-up for "Game of the Year" in 2025 QualCon Conference.</p>
+                    <span class="project-link">
+                        Play Game <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+
+                <a href="https://github.com/abigail-thomas/asteroid-defender" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-rocket"></i>
+                    </div>
+                    <h3>Asteroid Defender</h3>
+                    <p>A thrilling space defense game where players must navigate through asteroid fields and defend Earth from incoming threats.</p>
+                    <span class="project-link">
+                        View Code <i class="bi bi-github"></i>
+                    </span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <h2>About Me</h2>
+                    <p>Hello! I'm Abigail Thomas, a passionate computer science student who loves a little bit of everything. I specialize in developing efficient, user-centered applications and have experience across multiple programming languages and frameworks.</p>
+                    
+                    <p>When I'm not coding or exploring new technologies, you'll find me rock climbing, stargazing, or designing creative solutions for everyday challenges. I believe that the best software combines technical excellence with thoughtful user experience.</p>
+                    
+                    <div class="skills-grid">
+                        <div class="skill-item">
+                            <i class="bi bi-code-slash skill-icon"></i>
+                            <span>Communication & Collaboration</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="bi bi-layout-text-window skill-icon"></i>
+                            <span>Web Development</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="bi bi-database skill-icon"></i>
+                            <span>Database Management</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="bi bi-palette skill-icon"></i>
+                            <span>UI/UX Design</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="bi bi-palette skill-icon"></i>
+                            <span>Game Development & Design</span>
+                        </div>
                     </div>
                 </div>
-            </a>
-        </div>
-        <!-- Project Card 2 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://github.com/abigail-thomas/sub-surge" rel="noopener noreferrer" target="_blank" class="card-link">
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                    <h5 class="card-title">Sub Surge</h5>
-                <p class="card-text">Avoid obstacles and Float to the surface ! *</p>
-            </div>
-            </div>
-            </a>
-        </div>
-        <!-- Project Card 3 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://pierrehmatisse.com/" target="_blank" class="card-link">
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                    <h5 class="card-title">Matisse</h5>
-                <p class="card-text">View Matisse’s Magnifcent Artworks.</p>
+                
+                <div class="about-visual fade-in">
+                    <div class="stats-card">
+                        <div class="stat-item">
+                            <span class="stat-number">15+</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">3+</span>
+                            <span class="stat-label">Years of Experience</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5+</span>
+                            <span class="stat-label">Technologies Mastered</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
         </div>
-        <!-- Project Card 3 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://fsc-astronomy-club.web.app/" target="_blank" class="card-link">
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                    <h5 class="card-title">FSC Astronomy Club</h5>
-                <p class="card-text">Website for Florida Southern's Astronomy Club.</p>
-                </div>
-            </div>
-        </a>
-        </div>
-    
-        <div class="row justify-content-center pb-5">
-
-        <!-- Project Card 4 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://github.com/abigail-thomas/mario-kart-simulator" rel="noopener noreferrer" target="_blank" class="card-link">
-
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                    <h5 class="card-title">Mario Kart</h5>
-                <p class="card-text">Interactive Mario Kart Simulator. *</p>
-            </div>
-            </div>
-            </a>
-        </div>
-        <!-- Project Card 5 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://abigail-thomas.github.io/RGBguesser/" target="_blank" class="card-link">
-
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                    <h5 class="card-title">RGB Guesser</h5>
-                <p class="card-text">How well do you know your colors ?</p>
-            </div>
-            </div>
-            </a>
-        </div>
-        <!-- Project Card 6 -->
-        <div class="col-12 col-md-3 mb-4 g-5">
-            <a href="https://github.com/abigail-thomas/asteroid-defender" rel="noopener noreferrer" target="_blank" class="card-link">
-            <div class="card">
-                <div class="card-body d-flex flex-column justify-content-center align-items-center text-center">
-                    <h5 class="card-title">Asteroid Defender</h5>
-                <p class="card-text">Defeat the asteroids and make it back to earth ! *</p>
-                </div>
-            </div>
-            </a>
-        </div>
-        </div>
-        <p class="px-5">* directs you to my Github</p>
-        </div>
-    </div>
-    <br>
-
-    <!-- About Me Section -->
-    <div class="container-lg mt-5 " id="about">
-        <br><br>
-        <h2>About Me </h2>
-        <br>
-        <div class="container m-2 about-me">
-
-            <p class="p-5">Hello there :) My name is Abigail Thomas, and I’m passionate about constructing innovative solutions at the intersection of <strong>technology </strong> and <strong>creativity</strong>. Currently pursuing my degree in computer science, I specialize in developing efficient, user-centered applications and have experience in languages like Java, Python, and SQL.
-                <br><br>
-                When I’m not coding or exploring new technologies, you’ll find me rock climbing, stargazing, or designing creative solutions for everyday challenges.
-                <br><br>
-            <strong class="bold"> I’d love to connect and bring innovative ideas to life!</strong></p>
-        
-            </div>
-            <br><br>
-    </div>
-
-
+    </section>
 
     <!-- Contact Section -->
-    <div class="container-lg mt-5" id="contact">
-        <div class="row d-flex justify-content-center">
-            <div class="col-6">
-                <img src="imgs/star.svg" alt="star" style="width:100px;">
-            </div>
-            <div class="col-2">
-                <img src="imgs/star.svg" alt="star" style="width:150px;">
-            </div>
-            <div class="col-10">
-                <img src="imgs/star.svg" alt="star" style="width:200px;">
-            </div>
-            <div class="col-2">
-                <img src="imgs/star.svg" alt="star" style="width:100px;">
-            </div>
-        </div>
-        <div class="row d-grid">
-            <h2 class="text-center pb-5">Let's Connect !</h2>
-            <div class="container box p-5 d-grid justify-content-center">
-                <div class="row">
-                    <div class="col-3 px-5"><a href="mailto:agthomas084@gmail.com">EMAIL</a></div>
-                    <div class="col-3 px-5"><a href="https://github.com/abigail-thomas" target="_blank">GITHUB</a></div>
-                    <div class="col-3 px-5"><a href="https://www.linkedin.com/in/abigail-thomas-275927274/" target="_blank">LINKEDIN</a></div>
-                    <div class="col-3 px-5"><a href="abigailthomasresume.pdf" download="abigailthomasresume.pdf">RESUME</a></div>
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="contact-content fade-in">
+                <h2>Let's Connect!</h2>
+                <p>I'm always excited to collaborate on innovative projects and discuss new opportunities. Feel free to reach out!</p>
+                
+                <div class="contact-links">
+                    <a href="mailto:agthomas084@gmail.com" class="contact-link">
+                        <i class="bi bi-envelope"></i>
+                        Email Me
+                    </a>
+                    <a href="https://github.com/abigail-thomas" target="_blank" class="contact-link">
+                        <i class="bi bi-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/abigail-thomas-275927274/" target="_blank" class="contact-link">
+                        <i class="bi bi-linkedin"></i>
+                        LinkedIn
+                    </a>
+                    <a href="abigailthomasresume.pdf" download="abigailthomasresume.pdf" class="contact-link">
+                        <i class="bi bi-download"></i>
+                        Resume
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="row d-flex justify-content-center mt-5">
-            <div class="col-10">
-                <img src="imgs/star.svg" alt="star" style="width:150px;">
-            </div>
-            <div class="col-2">
-                <img src="imgs/star.svg" alt="star" style="width:100px;">
-            </div>
-            <div class="col-8">
-                <img src="imgs/star.svg" alt="star" style="width:100px;">
-            </div>
-            <div class="col-2">
-                <img src="imgs/star.svg" alt="star" style="width:200px;">
-            </div>
-        </div>
-    </div>
-    <br><br><br>
+    </section>
 
-    <footer class="mt-5" pt-5>
+    <!-- Footer -->
+    <footer class="footer">
         <div class="container">
-            <p class="text-center pt-5 mb-1">© 2024 Abigail Thomas. All Rights Reserved.</p>
+            <p>&copy; 2024 Abigail Thomas. Crafted with passion and code.</p>
         </div>
-
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
 
-        
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-
-
-   <!-- <script>
-        let header = document.getElementById('header');
-        header.addEventListener('mouseover', function(event) {
-            event.preventDefault();
-            header.style.animation = 'grow 4s forwards';
-            console.log('here');
+        // Navbar scroll effect
+        gsap.to(".navbar", {
+            scrollTrigger: {
+                trigger: ".navbar",
+                start: "top top",
+                end: "+=100",
+                scrub: true
+            },
+            backgroundColor: "rgba(255, 255, 255, 0.98)",
+            boxShadow: "0 2px 20px rgba(0, 0, 0, 0.1)"
         });
 
-    </script> --> 
+        // Fade in animations
+        gsap.from(".fade-in", {
+            scrollTrigger: {
+                trigger: ".fade-in",
+                start: "top 80%",
+                end: "bottom 20%",
+                toggleActions: "play none none reverse"
+            },
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2
+        });
+
+        // Project cards hover effect enhancement
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, {
+                    scale: 1.02,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, {
+                    scale: 1,
+                    duration: 0.3,
+                    ease: "power2.out"
+                });
+            });
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active nav link highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (pageYOffset >= sectionTop - 200) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Loading animation
+        window.addEventListener('load', () => {
+            gsap.from("body", {
+                opacity: 0,
+                duration: 0.5,
+                ease: "power2.out"
+            });
+        });
+        // Generate starfield
+function createStarfield() {
+    const starfield = document.querySelector('.starfield');
+    const numStars = 150;
     
+    for (let i = 0; i < numStars; i++) {
+        const star = document.createElement('div');
+        star.className = 'star';
+        
+        // Random size class
+        const sizes = ['small', 'medium', 'large'];
+        const randomSize = sizes[Math.floor(Math.random() * sizes.length)];
+        star.classList.add(randomSize);
+        
+        // Random position
+        star.style.left = Math.random() * 100 + '%';
+        star.style.top = Math.random() * 100 + '%';
+        
+        // Random animation delay
+        star.style.animationDelay = Math.random() * 4 + 's';
+        
+        starfield.appendChild(star);
+    }
+}
+
+// Call the function when page loads
+window.addEventListener('load', createStarfield);
+    </script>
 </body>
 </html>
