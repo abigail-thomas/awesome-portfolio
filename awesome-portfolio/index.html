@@ -863,6 +863,7 @@
     </style>
 </head>
 <body>
+
     <div class="starfield"></div>
     <!-- Navigation -->
     <nav class="navbar">
@@ -889,7 +890,7 @@
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text fade-in">
-                    <h1>Hi, I'm <span class="highlight">Abigail</span>.<br>Software Developer & Computer Science Student.</h1>
+                    <h1>Hi, I'm <span class="highlight">Abigail</span>.<br>Developer & Lifelong Learner.</h1>
                     <p class="subtitle">Passionate about exploring the intersection of technology and creativity.</p>
                     <a href="#projects" class="cta-button">
                         View My Work
@@ -1008,11 +1009,11 @@
                     <h2>About Me</h2>
                     <p>Hello! I'm Abigail Thomas, a passionate computer science student who loves a little bit of everything. I specialize in developing efficient, user-centered applications and have experience across multiple programming languages and frameworks.</p>
                     
-                    <p>When I'm not coding or exploring new technologies, you'll find me rock climbing, stargazing, or designing creative solutions for everyday challenges. I believe that the best software combines technical excellence with thoughtful user experience.</p>
+                    <p>When I'm not coding or exploring new technologies, you'll find me rock climbing, stargazing, painting, or engulfed in a new book. I believe that the best software combines technical excellence with thoughtful user experience and creativity.</p>
                     
                     <div class="skills-grid">
                         <div class="skill-item">
-                            <i class="bi bi-code-slash skill-icon"></i>
+                            <i class="bi bi-person skill-icon"></i>
                             <span>Communication & Collaboration</span>
                         </div>
                         <div class="skill-item">
@@ -1028,12 +1029,17 @@
                             <span>UI/UX Design</span>
                         </div>
                         <div class="skill-item">
-                            <i class="bi bi-palette skill-icon"></i>
+                            <i class="bi bi-code-slash skill-icon"></i>
+                            <span>Software Engineering</span>
+                        </div>
+                        <div class="skill-item">
+                            <i class="bi bi-controller skill-icon"></i>
                             <span>Game Development & Design</span>
                         </div>
                     </div>
                 </div>
-                
+                    <div id="app"></div>
+
                 <div class="about-visual fade-in">
                     <div class="stats-card">
                         <div class="stat-item">
@@ -1092,7 +1098,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+        <script type="module" src="/src/main.js"></script>
+
     <script>
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
