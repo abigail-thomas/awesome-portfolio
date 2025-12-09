@@ -14,6 +14,6 @@ import Projects from './components/Projects.vue';
   <About/>
   <Contact/>
   <Footer/>
-  
+
 
 </template>

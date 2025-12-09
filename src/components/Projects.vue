@@ -8,17 +8,40 @@
                 <p>A collection of projects that showcase my skills in web development, game design, and programming.</p>
             </div>
             <div class="projects-grid">
-                
-                <a href="https://abigail-thomas.github.io/Trekker/" target="_blank" class="project-card fade-in">
+                 <a href="https://github.com/FloridaSouthernCS/connections" target="_blank" class="project-card fade-in">
                     <div class="project-icon">
-                        <i class="bi bi-compass"></i>
+                        <i class="bi bi-robot"></i>
                     </div>
-                    <h3>Trekker</h3>
-                    <p>A comprehensive travel planning application that helps users discover and plan their perfect adventures with interactive maps and personalized recommendations.</p>
+                    <h3>Connections AI Solver</h3>
+                    <p>Summer 2025 Collaborative Research Project: Using Natural Language Processing Techniques to Solve Connections Puzzles.</p>
                     <span class="project-link">
-                        Explore Project <i class="bi bi-arrow-right"></i>
+                        View Code <i class="bi bi-github"></i>
                     </span>
                 </a>
+                <a href="https://github.com/abigail-thomas/flip-focus" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <span class="material-symbols-outlined">
+                        school
+                        </span>
+                    </div>
+                    <h3>Flip Focus</h3>
+                    <p>Flashcard study application using PHP with Laravel. </p>
+                    <span class="project-link">
+                        View Code <i class="bi bi-github"></i>
+                    </span>
+                </a>
+                 <a href="https://movie-catalog-3a599.web.app/" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-camera-reels"></i>
+                    </div>
+                    <h3>Movie Catalog</h3>
+                    <p>React-based movie catalog app that integrates with an external API, allowing users to search films and manage a personalized favorites list.</p>
+                    <span class="project-link">
+                        Find Movies <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+
+               
 
              
                  <a href="https://fsc-astronomy-club.web.app/" target="_blank" class="project-card fade-in">
@@ -32,16 +55,7 @@
                     </span>
                 </a>
 
-                <a href="https://pierrehmatisse.com/" target="_blank" class="project-card fade-in">
-                    <div class="project-icon">
-                        <i class="bi bi-palette"></i>
-                    </div>
-                    <h3>Matisse Gallery</h3>
-                    <p>An elegant digital gallery showcasing Pierre Matisse's magnificent artworks and his complex and fascinating life story through the beauty of his brush.</p>
-                    <span class="project-link">
-                        Visit Gallery <i class="bi bi-arrow-right"></i>
-                    </span>
-                </a>
+              
 
                
                   <a href="https://github.com/abigail-thomas/sub-surge" target="_blank" class="project-card fade-in">
@@ -77,14 +91,24 @@
                     </span>
                 </a>
 
-                 <a href="https://github.com/FloridaSouthernCS/connections" target="_blank" class="project-card fade-in">
+                 <a href="https://abigail-thomas.github.io/Trekker/" target="_blank" class="project-card fade-in">
                     <div class="project-icon">
-                        <i class="bi bi-robot"></i>
+                        <i class="bi bi-compass"></i>
                     </div>
-                    <h3>Connections AI Solver</h3>
-                    <p>Summer 2025 Collaborative Research Project: Using Natural Language Processing Techniques to Solve Connections Puzzles.</p>
+                    <h3>Trekker</h3>
+                    <p>A comprehensive travel planning application that helps users discover and plan their perfect adventures with interactive maps and personalized recommendations.</p>
                     <span class="project-link">
-                        View Code <i class="bi bi-github"></i>
+                        Explore Project <i class="bi bi-arrow-right"></i>
+                    </span>
+                </a>
+                  <a href="https://pierrehmatisse.com/" target="_blank" class="project-card fade-in">
+                    <div class="project-icon">
+                        <i class="bi bi-palette"></i>
+                    </div>
+                    <h3>Matisse Gallery</h3>
+                    <p>An elegant digital gallery showcasing Pierre Matisse's magnificent artworks and his complex and fascinating life story through the beauty of his brush.</p>
+                    <span class="project-link">
+                        Visit Gallery <i class="bi bi-arrow-right"></i>
                     </span>
                 </a>
 

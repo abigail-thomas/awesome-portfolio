@@ -21,21 +21,23 @@
           <!-- Floating image with enhanced depth -->
           <img src="@/imgs/me5.png" alt="Abigail Thomas Avatar" class="floating-image">
           <a
-            href="https://www.instagram.com/ag_thomas04"
+            href="https://www.linkedin.com/in/abigail-thomas-275927274/"
             target="_blank"
             rel="noopener noreferrer"
-            class="instagram-link"
-            aria-label="Instagram Profile"
+            class="linkedin-link"
+            aria-label="Linked In Profile"
           >
-            <svg
+          <svg
               xmlns="http://www.w3.org/2000/svg"
               width="64"
               height="64"
               viewBox="0 0 24 24"
               fill="white"
             >
-              <path d="M7.75 2h8.5A5.75 5.75 0 0122 7.75v8.5A5.75 5.75 0 0116.25 22h-8.5A5.75 5.75 0 012 16.25v-8.5A5.75 5.75 0 017.75 2zm0 2A3.75 3.75 0 004 7.75v8.5A3.75 3.75 0 007.75 20h8.5A3.75 3.75 0 0020 16.25v-8.5A3.75 3.75 0 0016.25 4h-8.5zM12 7a5 5 0 110 10 5 5 0 010-10zm0 2a3 3 0 100 6 3 3 0 000-6zm4.5-3a1 1 0 110 2 1 1 0 010-2z" />
-            </svg>
+              <path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.05 8h4.9v16h-4.9V8zm7.5 0h4.7v2.2h.1c.65-1.2 2.25-2.5 4.65-2.5 4.95 0 5.85 3.25 5.85 7.45V24h-4.9v-6.65c0-1.6 0-3.65-2.25-3.65-2.25 0-2.6 1.75-2.6 3.55V24h-4.9V8z"/>
+          </svg>
+
+
           </a>
         </div>
       </div>
@@ -263,7 +265,7 @@ h2 {
   filter: blur(20px);
 }
 
-.instagram-link {
+.linkedin-link {
   position: absolute;
   bottom: 65px;
   right: 35px;
@@ -272,9 +274,8 @@ h2 {
   transform: translateZ(20px);
 }
 
-.instagram-link:hover {
+.linkedin-link:hover {
   transform: translateZ(20px) scale(1.1);
-  color: #e4405f;
 }
 
 /* Subtle breathing animation for extra life */

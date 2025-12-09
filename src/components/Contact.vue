@@ -19,7 +19,7 @@
                         <i class="bi bi-linkedin"></i>
                         LinkedIn
                     </a>
-                    <a href="abigailthomas-resume.pdf" download="abigailthomasresume.pdf" class="contact-link">
+                    <a href="AbigailThomas2025Resume.pdf" download="abigailthomasresume.pdf" class="contact-link">
                         <i class="bi bi-download"></i>
                         Resume
                     </a>
